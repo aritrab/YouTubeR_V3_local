@@ -1,0 +1,17 @@
+{
+    "contents" : "#' retry \n#' This is a general error handeling function. base function used in this function\n#' is try() and trycatch()\n#' In package this function will mainly handel erros of the following functions \n#' httr::GET, base::readLines or rjson::fromJSON \n#' \n#' @param .FUN is a string variable. It is the string form of supplied function which is going to be \n#' evaluated and the function retry will deal with the errors commited in this process. \n#' @param url is a string variable. This is going to be used as a input parameter in the .FUN function\n#' supplied by the user. \n#' \n#' @return x is a string variable. Mainly x will contain data obtained from api either in XML ,JSON or \n#' simply in text fromat. \n#' @export \n\nretry <- function(.FUN, url, max.attempts = 5, sleep.seconds = 30) {\n  x <- NULL\n  url <- url\n  for (i in 1:max.attempts) {\n    f <- substitute(.FUN)\n    x <- try({\n      eval(f)\n    })\n    if (class(x) == \"try-error\") {\n      x <- try({\n        eval(f)\n      })\n    } else {\n      return(x)\n    }\n  }\n  x\n}\n  ",
+    "created" : 1431765607129.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3460021730",
+    "id" : "C5667536",
+    "lastKnownWriteTime" : 1431765628,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/R/retry.R",
+    "project_path" : "R/retry.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
