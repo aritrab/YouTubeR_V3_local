@@ -1,0 +1,16 @@
+{
+    "contents" : "Package: YouTubeR\nType: Package\nTitle: A package to access and analyse YouTube data api\nVersion: 1.0\nDate: 2015-05-16\nAuthor: Aritra Biswas\nMaintainer: Aritra Biswas <aritrabiswas.2008@gmail.com>\nDescription: More about what it does (maybe more than one line)\nLicense: What license is it under?\nVignetteBuilder: knitr\n",
+    "created" : 1431764236876.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4194236272",
+    "id" : "68B3CFB3",
+    "lastKnownWriteTime" : 1431762768,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "dcf"
+}
