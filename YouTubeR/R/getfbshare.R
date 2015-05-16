@@ -4,7 +4,7 @@ getfbshare <- function(videoId) {
   
   url = "https://www.youtube.com/watch?v="
   
-  url = paste(url, vidID, sep = "")
+  url = paste(url, videoId, sep = "")
   
   queryUrl = paste0("http://graph.facebook.com/fql?q=", fqlQuery, url, "\"")
   
@@ -18,11 +18,11 @@ getfbshare <- function(videoId) {
   
   names(data) <- c("ShareCount", "LikeCount", "CommentCount")
   
-  data$ShareCount<-as.numeric(as.character(ShareCount))
+  data$ShareCount<-as.numeric(as.character(data$ShareCount))
   
-  data$LikeCount<-as.numeric(as.character(LikeCount))
+  data$LikeCount<-as.numeric(as.character(data$LikeCount))
   
-  data$CommentCount<-as.numeric(as.character(CommentCount))
+  data$CommentCount<-as.numeric(as.character(data$CommentCount))
   
   
   return(data)

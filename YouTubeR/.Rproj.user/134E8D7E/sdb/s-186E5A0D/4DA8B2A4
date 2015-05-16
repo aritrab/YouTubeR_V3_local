@@ -1,0 +1,17 @@
+{
+    "contents" : "getallvideodata<-function(videoIdlist,key){\n  \n  df<-sapply(videoIdlist,getvideodata,key=key)\n  \n  df_df<-dplyr::tbl_df(as.data.frame(df))\n  \n  df_df0<-dplyr::tbl_df(as.data.frame(t(df_df)))\n  \n  names(df_df0)<-c(\"videoId\",\"publishedAt\",\"channelId\",\"title\",\"description\",\"duration\",\"channelTitle\",\"categoryId\",\"viewCount\",\"likeCount\",\"dislikeCount\",\"favoriteCount\",\"commentCount\",\"fbShareCount\", \"fbLikeCount\", \"fbCommentCount\",\"twitterShareCount\")\n    \n  df_df0$viewCount<-as.numeric(as.character(df_df0$viewCount)); \n  df_df0$likeCount<-as.numeric(as.character(df_df0$likeCount)); \n  df_df0$dislikeCount<-as.numeric(as.character(df_df0$dislikeCount)); \n  df_df0$favoriteCount<-as.numeric(as.character(df_df0$favoriteCount)); \n  df_df0$commentCount<-as.numeric(as.character(df_df0$commentCount));\n  df_df0$fbShareCount<-as.numeric(as.character(df_df0$fbShareCount));\n  df_df0$fbLikeCount<-as.numeric(as.character(df_df0$fbLikeCount));\n  df_df0$fbCommentCount<-as.numeric(as.character(df_df0$fbCommentCount));\n  df_df0$twitterShareCount<-as.numeric(as.character(df_df0$twitterShareCount));\n  df_df0$categoryId<-as.numeric(as.character(df_df0$categoryId))\n  \n  return(df_df0)}",
+    "created" : 1431774632750.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4191665457",
+    "id" : "4DA8B2A4",
+    "lastKnownWriteTime" : 1431774643,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/R/getallvideodata.R",
+    "project_path" : "R/getallvideodata.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "library(YouTubeR)\n\nname<-\"ARPAN01234\"\n\nid<-\"QSK_DbnLrlI\"\n\nkey<-\"AIzaSyDUb-uRZIeGtmVoEDeRyEeuwjQ0jjTMX8c\"\n\nARPAN01234<-getvideoIdlist(name,key)\n\nVideoData<-getvideodata(id,key)\n\nAllVideoData<-getallvideodata(ARPAN01234,key)\n\nVideoFBShare<-getfbshare(id)\n\nVideoTwitterShare<-gettwittershare(id)\n\n\n\n",
+    "created" : 1431773621515.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "37719231",
+    "id" : "58D1D6B0",
+    "lastKnownWriteTime" : 1431775534,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/inst/example.R",
+    "project_path" : "inst/example.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
