@@ -1,0 +1,4 @@
+1. GET CC
+
+http://stackoverflow.com/questions/14061195/how-to-get-transcript-in-youtube-api-v3
+
