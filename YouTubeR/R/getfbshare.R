@@ -18,5 +18,12 @@ getfbshare <- function(videoId) {
   
   names(data) <- c("ShareCount", "LikeCount", "CommentCount")
   
+  data$ShareCount<-as.numeric(as.character(ShareCount))
+  
+  data$LikeCount<-as.numeric(as.character(LikeCount))
+  
+  data$CommentCount<-as.numeric(as.character(CommentCount))
+  
+  
   return(data)
 } 
