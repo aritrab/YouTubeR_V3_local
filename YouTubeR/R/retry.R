@@ -14,32 +14,20 @@
 #' @export 
 
 retry <- function(.FUN, url, max.attempts = 5, sleep.seconds = 30) {
-  
   x <- NULL
-  
   url <- url
-  
-  for (i in 1:max.attempts) 
-  {
-    
+  for (i in 1:max.attempts) {
     f <- substitute(.FUN)
-    
     x <- try({
       eval(f)
     })
-    
     if (class(x) == "try-error") {
-      
       x <- try({
         eval(f)
       })
     } else {
-      
       return(x)
-      
     }
-    
   }
-  
   x
-}
+  
