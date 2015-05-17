@@ -1,0 +1,17 @@
+{
+    "contents" : "getvideodata <- function(id, key) {\n  \n  url = paste0(\"https://www.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics%2CcontentDetails&id=\", sprintf(\"%s\", id), \"&maxResults=50&key=\", sprintf(\"%s\", key))\n  \n  raw.data <- retry(httr::GET(paste0(url)), url)\n  \n  raw.data <- retry_raw_data(httr::content(raw.data, \"text\"), raw.data)\n  \n  data <- retryfromJSON(rjson::fromJSON(raw.data), raw.data, httr::content(raw.data, \"text\"), url, httr::GET(paste0(url)))\n  \n  dataset.df<-fbshare(id)\n  \n  twittershare<-twittershare(id)\n  \n  fbshareCount<-as.numeric(dataset.df[[1]][[1]][1])\n  \n  fblikeCount<-as.numeric(dataset.df[[1]][[1]][2])\n  \n  fbcommentCount<-as.numeric(dataset.df[[1]][[1]][3])\n  \n  df <- c(id,data$items[[1]]$snippet$publishedAt, data$items[[1]]$snippet$channelId, data$items[[1]]$snippet$title, data$items[[1]]$snippet$description, data$items[[1]]$contentDetails$duration, data$items[[1]]$snippet$channelTitle, data$items[[1]]$snippet$categoryId, data$items[[1]]$statistics$viewCount, \n          data$items[[1]]$statistics$likeCount, data$items[[1]]$statistics$dislikeCount, data$items[[1]]$statistics$favoriteCount, data$items[[1]]$statistics$commentCount,fbshareCount,fblikeCount,fbcommentCount,twittershare)\n  \n  df<-list(df)\n  \n  names(df)<-NULL\n  \n  return(unlist(df))\n  \n} ",
+    "created" : 1431879837129.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "997446012",
+    "id" : "3268E628",
+    "lastKnownWriteTime" : 1431869252,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/R/getvideodata.R",
+    "project_path" : "R/getvideodata.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

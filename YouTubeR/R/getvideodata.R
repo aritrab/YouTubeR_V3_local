@@ -12,17 +12,19 @@ getvideodata <- function(id, key) {
   
   twittershare<-twittershare(id)
   
-  fbshareCount<-dataset.df[[1]][[1]][1]
+  fbshareCount<-as.numeric(dataset.df[[1]][[1]][1])
   
-  fblikeCount<-dataset.df[[1]][[1]][2]
+  fblikeCount<-as.numeric(dataset.df[[1]][[1]][2])
   
-  fbcommentCount<-dataset.df[[1]][[1]][3]
+  fbcommentCount<-as.numeric(dataset.df[[1]][[1]][3])
   
-  df <- c(id, data$items[[1]]$snippet$publishedAt, data$items[[1]]$snippet$channelId, data$items[[1]]$snippet$title, data$items[[1]]$snippet$description, data$items[[1]]$contentDetails$duration, data$items[[1]]$snippet$channelTitle, data$items[[1]]$snippet$categoryId, data$items[[1]]$statistics$viewCount, 
+  df <- c(id,data$items[[1]]$snippet$publishedAt, data$items[[1]]$snippet$channelId, data$items[[1]]$snippet$title, data$items[[1]]$snippet$description, data$items[[1]]$contentDetails$duration, data$items[[1]]$snippet$channelTitle, data$items[[1]]$snippet$categoryId, data$items[[1]]$statistics$viewCount, 
           data$items[[1]]$statistics$likeCount, data$items[[1]]$statistics$dislikeCount, data$items[[1]]$statistics$favoriteCount, data$items[[1]]$statistics$commentCount,fbshareCount,fblikeCount,fbcommentCount,twittershare)
+  
+  df<-list(df)
   
   names(df)<-NULL
   
-  return(df)
+  return(unlist(df))
   
 } 

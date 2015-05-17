@@ -1,0 +1,17 @@
+{
+    "contents" : "library(YouTubeR)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(googleVis)\nlibrary(ggplot2)\nlibrary(reshape2)\n\nname<-\"allindiabakchod\"\n\nid<-\"jxSNhRxFNqs\"\n\nkey<-\"AIzaSyDUb-uRZIeGtmVoEDeRyEeuwjQ0jjTMX8c\"\n\nARPAN01234<-getvideoIdlist(name,key)\n\nVideoData<-getvideodata(id,key)\n\nvideoviz(VideoData)\n\nVideoData[4]\n\nVideoData00<-data.frame(VideoData[9:17])\n\nVideoData00<-cbind.data.frame(c(\"viewCount\",\"likeCount\",\"dislikeCount\",\"favoriteCount\",\"commentCount\",\"fbShareCount\",\"fbLikeCount\",\"fbCommentCount\",\"twitterShareCount\"),VideoData00)\nnames(VideoData00)<-c(\"name\",\"value\")\nggplot(data=VideoData00, aes(x=name, y=value)) +\n  geom_bar(aes(fill = name),stat=\"identity\")\n\nnames(VideoData0)<-c(\"id\",\"publishedAt\",\"channelId\",\"title\",\"description\",\"duration\",\"channelTitle\",\"categoryId\",\"viewCount\",\"likeCount\",\"dislikeCount\",\"favoriteCount\",\"commentCount\",\"fbShareCount\",\"fbLikeCount\",\"fbCommentCount\",\"twitterShareCount\")\n\nggplot(data=VideoData0, aes(x=time, y=total_bill)) +\n  geom_bar(stat=\"identity\")\n\nAllVideoData<-getallvideodata(ARPAN01234,key)\n###################################################\n\ndf<-AllVideoData[,9:17]\n\ndf$id<-AllVideoData$title\n\ndf.t<-df[1:5,2:10]%>%\n  gather(id)\n  \nnames(df.t)<-c(\"id\",\"variable\",\"value\")\n\nggplot(df.t, aes(id, value)) +   \n  geom_bar(aes(fill = variable), position = \"dodge\", stat=\"identity\")+coord_flip()+\n  facet_grid(. ~ id)\n\n#########################################\n\ndummyfunct<-function(){\n  df <- data.frame(time = factor(c(\"Lunch\",\"Dinner\"), levels=c(\"Lunch\",\"Dinner\")),\n                   total_bill = c(14.89, 17.23))\n  x <- ggplot(data=df, aes(x=time, y=total_bill)) + geom_bar(aes(fill=time))\n  print(x)\n  return(df)\n} \n\ndummyfunct()\n\n########################################\n\n\n\n\n\nVideoFBShare<-getfbshare(id)\n\nVideoTwitterShare<-gettwittershare(id)\n\nsave.image()\n\n\n\n\n\n",
+    "created" : 1431854252674.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3006926630",
+    "id" : "BCEF7CAF",
+    "lastKnownWriteTime" : 1431880225,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/inst/example.R",
+    "project_path" : "inst/example.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
