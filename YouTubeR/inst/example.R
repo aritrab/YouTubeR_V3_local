@@ -4,6 +4,7 @@ library(tidyr)
 library(googleVis)
 library(ggplot2)
 library(reshape2)
+library(GGally)
 
 name<-"allindiabakchod"
 
@@ -21,5 +22,10 @@ VideoFBShare<-getfbshare(id)
 
 VideoTwitterShare<-gettwittershare(id)
 
+plots<-allvideoviz(AllVideoData)
+
 save.image()
+
+
+
 

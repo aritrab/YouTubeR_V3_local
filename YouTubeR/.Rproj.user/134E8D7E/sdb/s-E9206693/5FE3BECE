@@ -1,0 +1,17 @@
+{
+    "contents" : "allvideoviz<-function(dataset){\n  \n  library(dplyr)\n  library(tidyr)\n  library(ggplot2)\n  \n  ggplot2::theme_set(theme_light())\n  \n  p1<-ggpairs(dataset[, 9:17],upper = list(params = c(corSize=6,alpha = 0.9)), lower=list(continuous=\"smooth\",params=c(colour=\"#DD8888\",alpha = 0.6)))\n    \n  cbbPalette <- c(\"#FBB4AE\" ,\"#B3CDE3\", \"#CCEBC5\", \"#DECBE4\", \"#FED9A6\", \"#FFFFCC\", \"#E5D8BD\", \"#FDDAEC\",\"#F2F2F2\")\n  \n  dataset_1<-cbind(dataset[,1],dataset[,9:17])\n  \n  dataset_1<-gather(dataset_1,variable,key,-id)\n  \n  dataset_1<-group_by(dataset_1,id)\n  \n  dataset_1<-mutate(dataset_1,par=key/sum(key)*100)\n  \n  dataset_1<-select(dataset_1,-key)\n    \n  \n  p2<-ggplot(data=dataset_1, aes(x=factor(id),y=par,fill=variable)) +\n    geom_bar(stat=\"identity\",position=position_stack())\n  \n  dataset_2<-cbind(dataset[,1],dataset[,9:17])\n  \n  dataset_2<-gather(dataset_2,variable,key,-id)\n  \n  dataset_2<-group_by(dataset_2,id)\n  \n\n  p3<-ggplot(data=dataset_2, aes(x=factor(id),y=key,fill=variable)) +\n    geom_bar(stat=\"identity\",position=position_dodge())\n  \n  allvideoviz<-list(p1,p2,p3)\n  \n  return(allvideoviz)}",
+    "created" : 1432035948769.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2275527227",
+    "id" : "5FE3BECE",
+    "lastKnownWriteTime" : 1432036086,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/R/allvideoviz.R",
+    "project_path" : "R/allvideoviz.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

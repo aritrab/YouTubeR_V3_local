@@ -1,0 +1,17 @@
+{
+    "contents" : "library(YouTubeR)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(googleVis)\nlibrary(ggplot2)\nlibrary(reshape2)\nlibrary(GGally)\n\nname<-\"allindiabakchod\"\n\nid<-\"KtPv7IEhWRA\"\n\nkey<-\"AIzaSyDUb-uRZIeGtmVoEDeRyEeuwjQ0jjTMX8c\"\n\nARPAN01234<-getvideoIdlist(name,key)\n\nVideoData<-getvideodata(id,key)\n\nvideoviz(VideoData)\n\nVideoFBShare<-getfbshare(id)\n\nVideoTwitterShare<-gettwittershare(id)\n\nplots<-allvideoviz(AllVideoData)\n\nsave.image()\n\n\n\n\n",
+    "created" : 1431935874846.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3557999100",
+    "id" : "8C9E8650",
+    "lastKnownWriteTime" : 1432036118,
+    "path" : "~/GitHub/YouTubeR_V3/YouTubeR/inst/example.R",
+    "project_path" : "inst/example.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
