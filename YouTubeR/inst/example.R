@@ -22,7 +22,7 @@ VideoFBShare<-getfbshare(id)
 
 VideoTwitterShare<-gettwittershare(id)
 
-plots<-allvideoviz(AllVideoData)
+allvideoplots<-allvideoviz(AllVideoData)
 
 save.image()
 
